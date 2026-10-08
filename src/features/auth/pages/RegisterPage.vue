@@ -11,6 +11,7 @@
         />
         <input
           type="text"
+          id="register-name-input"
           data-testid="register-name-input"
           v-model="name"
           placeholder="Nama Lengkap Anda"
@@ -31,6 +32,7 @@
         />
         <input
           type="email"
+          id="register-email-input"
           data-testid="register-email-input"
           v-model="email"
           placeholder="nama@email.com"
@@ -51,6 +53,7 @@
         />
         <input
           type="password"
+          id="register-password-input"
           data-testid="register-password-input"
           v-model="password"
           placeholder="Minimal 6 karakter"
@@ -63,6 +66,7 @@
     <div class="pt-2">
       <button
         type="submit"
+        id="register-submit-button"
         data-testid="register-submit-button"
         :disabled="loading"
         class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl shadow-md shadow-indigo-600/25 transition-all disabled:opacity-60"
