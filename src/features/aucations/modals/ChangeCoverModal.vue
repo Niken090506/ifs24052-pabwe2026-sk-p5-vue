@@ -50,7 +50,9 @@
             </div>
             <input
               type="file"
+              id="cover-file-input"
               data-testid="cover-file-input"
+              aria-label="Pilih Gambar Cover"
               accept="image/*"
               @change="handleFileChange"
               class="hidden"

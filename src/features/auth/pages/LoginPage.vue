@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="onSubmitHandler" class="space-y-4">
     <div>
-      <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="login-email-input">
         Alamat Email
       </label>
       <div class="relative">
@@ -15,6 +15,7 @@
           data-testid="login-email-input"
           v-model="email"
           placeholder="nama@email.com"
+          aria-label="Alamat Email"
           class="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
           required
         />
@@ -22,7 +23,7 @@
     </div>
 
     <div>
-      <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="login-password-input">
         Kata Sandi
       </label>
       <div class="relative">
@@ -36,6 +37,7 @@
           data-testid="login-password-input"
           v-model="password"
           placeholder="••••••••"
+          aria-label="Kata Sandi"
           class="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
           required
         />

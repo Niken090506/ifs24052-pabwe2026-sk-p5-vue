@@ -42,27 +42,29 @@
             <span class="font-bold text-slate-700">{{ formatRupiah(aucation.start_bid) }}</span>
           </div>
           <div class="flex items-center justify-between text-xs">
-            <span class="text-slate-500">Tawaran Tertinggi:</span>
-            <span class="font-bold text-emerald-600">{{ formatRupiah(currentHighestBid) }}</span>
+            <span class="text-slate-600">Tawaran Tertinggi:</span>
+            <span class="font-bold text-emerald-800">{{ formatRupiah(currentHighestBid) }}</span>
           </div>
         </div>
 
         <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="bid-amount-input">
             Nominal Tawaran Anda (Rp) <span class="text-red-500">*</span>
           </label>
           <div class="relative">
             <input
               type="number"
+              id="bid-amount-input"
               data-testid="bid-amount-input"
+              aria-label="Nominal Tawaran Anda (Rp)"
               v-model="bidAmount"
               :placeholder="`Minimal ${formatRupiah(minBid)}`"
               class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all text-sm shadow-xs font-semibold"
               required
             />
           </div>
-          <p class="text-[11px] text-slate-500 mt-1.5">
-            Nominal penawaran harus lebih tinggi dari penawaran tertinggi saat ini (minimal <strong class="text-emerald-700">{{ formatRupiah(minBid) }}</strong>).
+          <p class="text-[11px] text-slate-600 mt-1.5">
+            Nominal penawaran harus lebih tinggi dari penawaran tertinggi saat ini (minimal <strong class="text-emerald-800">{{ formatRupiah(minBid) }}</strong>).
           </p>
         </div>
 
@@ -80,7 +82,7 @@
             type="submit"
             data-testid="submit-bid-modal-btn"
             :disabled="loading"
-            class="inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 rounded-xl shadow-md shadow-emerald-600/25 transition-all disabled:opacity-50"
+            class="inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 rounded-xl shadow-md shadow-emerald-800/25 transition-all disabled:opacity-50"
           >
             <Loader2 v-if="loading" :size="16" class="animate-spin" />
             <Coins v-else :size="16" />

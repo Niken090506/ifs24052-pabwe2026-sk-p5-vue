@@ -47,7 +47,7 @@
         </button>
       </div>
 
-      <!-- Bidder Actions when not owner -->
+        <!-- Bidder Actions when not owner -->
       <div v-else-if="!isClosed" class="flex items-center gap-2">
         <button
           v-if="aucation.my_bid"
@@ -64,7 +64,7 @@
           type="button"
           data-testid="place-bid-btn"
           @click="showBidModal = true"
-          class="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 transition-all"
+          class="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold rounded-xl text-white bg-emerald-800 hover:bg-emerald-900 shadow-md shadow-emerald-800/25 transition-all"
         >
           <Coins :size="16" />
           Ajukan Tawaran
@@ -88,7 +88,7 @@
         <!-- Title & Status Header -->
         <div class="space-y-3">
           <div class="flex items-center gap-3 flex-wrap">
-            <span class="font-mono text-xs font-bold text-slate-400">
+            <span class="font-mono text-xs font-bold text-slate-600">
               #{{ aucation.id }}
             </span>
             <span
@@ -100,7 +100,7 @@
             </span>
             <span
               v-else
-              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 animate-pulse"
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200"
             >
               <Clock :size="14" />
               Lelang Berlangsung
@@ -118,18 +118,18 @@
             {{ aucation.title }}
           </h1>
 
-          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400">
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600">
             <div class="flex items-center gap-1.5">
-              <User :size="14" class="shrink-0 text-slate-400" />
-              <span>Penjual: <strong class="text-slate-600">{{ aucation.author?.name || "Anonim" }}</strong></span>
+              <User :size="14" class="shrink-0 text-slate-500" />
+              <span>Penjual: <strong class="text-slate-700">{{ aucation.author?.name || "Anonim" }}</strong></span>
             </div>
             <div class="flex items-center gap-1.5">
-              <Calendar :size="14" class="shrink-0 text-slate-400" />
-              <span>Dibuat: <strong class="text-slate-600">{{ formatDate(aucation.created_at) }}</strong></span>
+              <Calendar :size="14" class="shrink-0 text-slate-500" />
+              <span>Dibuat: <strong class="text-slate-700">{{ formatDate(aucation.created_at) }}</strong></span>
             </div>
             <div class="flex items-center gap-1.5">
-              <Clock :size="14" class="shrink-0 text-slate-400" />
-              <span>Batas Penutupan: <strong class="text-slate-600">{{ formatDate(aucation.closed_at) }}</strong></span>
+              <Clock :size="14" class="shrink-0 text-slate-500" />
+              <span>Batas Penutupan: <strong class="text-slate-700">{{ formatDate(aucation.closed_at) }}</strong></span>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
         <!-- Price & Bid Overview Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+            <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide">
               Harga Penawaran Awal
             </p>
             <p class="text-xl font-bold text-slate-800 mt-1">
@@ -146,19 +146,19 @@
           </div>
 
           <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
-            <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">
+            <p class="text-xs font-semibold text-emerald-800 uppercase tracking-wide">
               Penawaran Tertinggi
             </p>
-            <p class="text-2xl font-black text-emerald-700 mt-1">
+            <p class="text-2xl font-black text-emerald-800 mt-1">
               {{ formatRupiah(highestBid) }}
             </p>
           </div>
 
           <div class="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100">
-            <p class="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+            <p class="text-xs font-semibold text-indigo-700 uppercase tracking-wide">
               Tawaran Anda
             </p>
-            <p class="text-xl font-bold text-indigo-700 mt-1">
+            <p class="text-xl font-bold text-indigo-800 mt-1">
               {{ aucation.my_bid ? formatRupiah(aucation.my_bid.bid) : "Belum menawar" }}
             </p>
           </div>
@@ -178,19 +178,19 @@
         <div class="space-y-4 pt-4 border-t border-slate-100">
           <div class="flex items-center justify-between">
             <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-              <Coins :size="16" class="text-emerald-600" />
+              <Coins :size="16" class="text-emerald-700" />
               <span>Riwayat Penawaran ({{ bidsList.length }})</span>
             </h2>
           </div>
 
-          <div v-if="bidsList.length === 0" class="p-8 text-center text-slate-400 bg-slate-50/60 rounded-2xl border border-slate-100">
-            <Coins :size="32" class="mx-auto text-slate-300 mb-2" />
+          <div v-if="bidsList.length === 0" class="p-8 text-center text-slate-600 bg-slate-50/60 rounded-2xl border border-slate-100">
+            <Coins :size="32" class="mx-auto text-slate-400 mb-2" />
             <p class="text-sm font-medium">Belum ada penawaran yang diajukan untuk barang ini.</p>
           </div>
 
           <div v-else class="overflow-hidden border border-slate-200/80 rounded-2xl">
             <table class="w-full text-left text-sm">
-              <thead class="bg-slate-50 border-b border-slate-200/80 text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <thead class="bg-slate-50 border-b border-slate-200/80 text-xs font-bold text-slate-600 uppercase tracking-wider">
                 <tr>
                   <th class="px-5 py-3.5">Urutan</th>
                   <th class="px-5 py-3.5">Nominal Penawaran</th>
@@ -207,18 +207,18 @@
                   <td class="px-5 py-3.5 flex items-center gap-2">
                     <span
                       class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                      :class="index === 0 ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-600'"
+                      :class="index === 0 ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700'"
                     >
                       #{{ index + 1 }}
                     </span>
-                    <span v-if="index === 0" class="text-[11px] font-bold text-emerald-600 uppercase tracking-wide">
+                    <span v-if="index === 0" class="text-[11px] font-bold text-emerald-800 uppercase tracking-wide">
                       (Tertinggi)
                     </span>
                   </td>
                   <td class="px-5 py-3.5 font-bold text-slate-900">
                     {{ formatRupiah(b.bid) }}
                   </td>
-                  <td class="px-5 py-3.5 text-xs text-slate-500">
+                  <td class="px-5 py-3.5 text-xs text-slate-600">
                     {{ formatDate(b.created_at) }}
                   </td>
                 </tr>

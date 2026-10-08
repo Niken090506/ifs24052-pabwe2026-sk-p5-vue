@@ -38,8 +38,10 @@
           <Loader2 v-if="loadingPhoto" :size="16" class="animate-spin" />
           <Camera v-else :size="16" />
           <input
+            id="profile-photo-file-input"
             type="file"
             data-testid="profile-photo-file-input"
+            aria-label="Unggah Foto Profil"
             accept="image/*"
             @change="handlePhotoUpload"
             class="hidden"
@@ -70,26 +72,32 @@
 
         <form @submit.prevent="handleUpdateProfile" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="profile-name-input">
               Nama Lengkap
             </label>
             <input
+              id="profile-name-input"
               type="text"
               data-testid="profile-name-input"
               v-model="name"
+              aria-label="Nama Lengkap"
+              placeholder="Nama Lengkap Anda"
               class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
               required
             />
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="profile-email-input">
               Alamat Email
             </label>
             <input
+              id="profile-email-input"
               type="email"
               data-testid="profile-email-input"
               v-model="email"
+              aria-label="Alamat Email"
+              placeholder="nama@email.com"
               class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
               required
             />
@@ -123,42 +131,48 @@
 
         <form @submit.prevent="handleUpdatePassword" class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="current-password-input">
               Kata Sandi Saat Ini
             </label>
             <input
+              id="current-password-input"
               type="password"
               data-testid="current-password-input"
               v-model="oldPassword"
               placeholder="••••••••"
+              aria-label="Kata Sandi Saat Ini"
               class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
               required
             />
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="new-password-input">
               Kata Sandi Baru
             </label>
             <input
+              id="new-password-input"
               type="password"
               data-testid="new-password-input"
               v-model="newPassword"
               placeholder="Minimal 6 karakter"
+              aria-label="Kata Sandi Baru"
               class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
               required
             />
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="confirm-password-input">
               Ulangi Kata Sandi Baru
             </label>
             <input
+              id="confirm-password-input"
               type="password"
               data-testid="confirm-password-input"
               v-model="newPasswordConfirmation"
               placeholder="Konfirmasi kata sandi"
+              aria-label="Ulangi Kata Sandi Baru"
               class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
               required
             />

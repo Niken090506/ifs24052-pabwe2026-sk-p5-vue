@@ -39,10 +39,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Total Lelang
           </p>
-          <h3 class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</h3>
+          <p class="text-3xl font-black text-slate-800 mt-1">{{ totalCount }}</p>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
           <Gavel :size="26" :stroke-width="2" />
@@ -51,26 +51,26 @@
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Lelang Berlangsung
           </p>
-          <h3 class="text-3xl font-black text-emerald-600 mt-1">
+          <p class="text-3xl font-black text-emerald-800 mt-1">
             {{ activeCount }}
-          </h3>
+          </p>
         </div>
-        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center">
           <Clock :size="26" :stroke-width="2" />
         </div>
       </div>
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">
             Lelang Ditutup
           </p>
-          <h3 class="text-3xl font-black text-slate-600 mt-1">{{ closedCount }}</h3>
+          <p class="text-3xl font-black text-slate-700 mt-1">{{ closedCount }}</p>
         </div>
-        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center">
+        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center">
           <CheckCircle2 :size="26" :stroke-width="2" />
         </div>
       </div>
@@ -86,6 +86,7 @@
           />
           <input
             type="text"
+            id="search-aucation-input"
             data-testid="search-aucation-input"
             aria-label="Cari judul atau rincian lelang"
             v-model="searchQuery"
@@ -95,10 +96,10 @@
         </div>
 
         <div class="flex items-center gap-2.5 flex-wrap">
-          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
+          <span class="text-xs font-semibold text-slate-700 uppercase tracking-wide flex items-center gap-1.5">
             <Filter :size="16" /> Filter:
           </span>
-          <div class="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-semibold text-slate-600 flex-wrap">
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-semibold text-slate-700 flex-wrap">
             <button
               type="button"
               data-testid="filter-all-btn"
@@ -141,10 +142,10 @@
 
       <!-- Aucations Grid -->
       <div class="p-6">
-        <div v-if="filteredAucations.length === 0" class="py-16 text-center text-slate-400">
-          <Gavel :size="48" class="mx-auto text-slate-300 mb-3" />
-          <h3 class="text-base font-bold text-slate-700">Tidak ada sesi lelang ditemukan</h3>
-          <p class="text-sm mt-1 max-w-sm mx-auto text-slate-500">
+        <div v-if="filteredAucations.length === 0" class="py-16 text-center text-slate-600">
+          <Gavel :size="48" class="mx-auto text-slate-400 mb-3" />
+          <p class="text-base font-bold text-slate-800">Tidak ada sesi lelang ditemukan</p>
+          <p class="text-sm mt-1 max-w-sm mx-auto text-slate-600">
             Belum ada barang lelang yang cocok dengan filter atau kata kunci pencarian Anda.
           </p>
         </div>
@@ -164,22 +165,22 @@
                 :alt="item.title"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div v-else class="w-full h-full flex flex-col items-center justify-center text-slate-300 bg-slate-100">
+              <div v-else class="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-slate-100">
                 <Image :size="36" />
-                <span class="text-xs mt-1 text-slate-400">Tidak ada gambar</span>
+                <span class="text-xs mt-1 text-slate-600">Tidak ada gambar</span>
               </div>
 
               <!-- Status Badge -->
               <div class="absolute top-3 left-3">
                 <span
                   v-if="checkIsClosed(item)"
-                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/80 text-white backdrop-blur-xs"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/90 text-white backdrop-blur-xs"
                 >
                   <CheckCircle2 :size="13" /> Ditutup
                 </span>
                 <span
                   v-else
-                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-600/90 text-white backdrop-blur-xs animate-pulse"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-800 text-white backdrop-blur-xs"
                 >
                   <Clock :size="13" /> Berlangsung
                 </span>
@@ -196,10 +197,10 @@
             <!-- Card Content -->
             <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
               <div>
-                <h3 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors line-clamp-1">
+                <h2 class="font-bold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors line-clamp-1">
                   {{ item.title }}
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 mt-1">
+                </h2>
+                <p class="text-xs text-slate-600 line-clamp-2 mt-1">
                   {{ item.description || "Tidak ada deskripsi rincian." }}
                 </p>
               </div>
@@ -207,19 +208,19 @@
               <!-- Pricing section -->
               <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
                 <div class="flex items-center justify-between text-xs">
-                  <span class="text-slate-500">Harga Awal:</span>
-                  <span class="font-bold text-slate-700">{{ formatRupiah(item.start_bid) }}</span>
+                  <span class="text-slate-600">Harga Awal:</span>
+                  <span class="font-bold text-slate-800">{{ formatRupiah(item.start_bid) }}</span>
                 </div>
                 <div class="flex items-center justify-between text-xs">
-                  <span class="text-slate-500">Tawaran Tertinggi:</span>
-                  <span class="font-extrabold text-emerald-600 text-sm">
+                  <span class="text-slate-600">Tawaran Tertinggi:</span>
+                  <span class="font-extrabold text-emerald-800 text-sm">
                     {{ formatRupiah(getHighestBid(item)) }}
                   </span>
                 </div>
               </div>
 
               <!-- Card Footer Meta -->
-              <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
                 <div class="flex items-center gap-1.5 truncate max-w-[150px]">
                   <img
                     v-if="item.author?.photo"
@@ -231,7 +232,7 @@
                   <span class="truncate">{{ item.author?.name || "Penjual" }}</span>
                 </div>
 
-                <div class="flex items-center gap-1 font-semibold text-slate-500 shrink-0">
+                <div class="flex items-center gap-1 font-semibold text-slate-600 shrink-0">
                   <Calendar :size="13" />
                   <span>{{ formatDate(item.closed_at) }}</span>
                 </div>
@@ -253,7 +254,7 @@
                     type="button"
                     :data-testid="'edit-aucation-btn-' + item.id"
                     @click="openEditModal(item)"
-                    class="p-2 rounded-xl text-amber-600 bg-amber-50 hover:bg-amber-100 transition-colors"
+                    class="p-2 rounded-xl text-amber-700 bg-amber-50 hover:bg-amber-100 transition-colors"
                     title="Ubah Data"
                   >
                     <Edit3 :size="15" />
@@ -262,7 +263,7 @@
                     type="button"
                     :data-testid="'delete-aucation-btn-' + item.id"
                     @click="handleDeleteItem(item.id)"
-                    class="p-2 rounded-xl text-red-600 bg-red-50 hover:bg-red-100 transition-colors"
+                    class="p-2 rounded-xl text-red-700 bg-red-50 hover:bg-red-100 transition-colors"
                     title="Hapus Lelang"
                   >
                     <Trash2 :size="15" />
@@ -274,7 +275,7 @@
                   type="button"
                   :data-testid="'bid-aucation-btn-' + item.id"
                   @click="openBidModal(item)"
-                  class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-xs"
+                  class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white transition-colors shadow-xs"
                 >
                   <Coins :size="14" />
                   <span>Tawar</span>

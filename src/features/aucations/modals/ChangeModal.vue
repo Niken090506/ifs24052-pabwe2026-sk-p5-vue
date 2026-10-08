@@ -31,12 +31,14 @@
       <div class="flex-1 flex flex-col min-h-0 p-6 md:p-8 space-y-4 w-full overflow-y-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 shrink-0">
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="edit-aucation-title-input">
               Judul Barang Lelang <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
+              id="edit-aucation-title-input"
               data-testid="edit-aucation-title-input"
+              aria-label="Judul Barang Lelang"
               v-model="title"
               class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm shadow-xs"
               required
@@ -44,12 +46,14 @@
           </div>
 
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="edit-aucation-start-bid-input">
               Harga Penawaran Awal (Rp) <span class="text-red-500">*</span>
             </label>
             <input
               type="number"
+              id="edit-aucation-start-bid-input"
               data-testid="edit-aucation-start-bid-input"
+              aria-label="Harga Penawaran Awal (Rp)"
               v-model="startBid"
               min="1"
               class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm shadow-xs"
@@ -59,12 +63,14 @@
         </div>
 
         <div class="shrink-0">
-          <label class="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label class="block text-sm font-semibold text-slate-700 mb-1.5" for="edit-aucation-closed-at-input">
             Batas Waktu Penutupan (Closed At) <span class="text-red-500">*</span>
           </label>
           <input
             type="datetime-local"
+            id="edit-aucation-closed-at-input"
             data-testid="edit-aucation-closed-at-input"
+            aria-label="Batas Waktu Penutupan (Closed At)"
             v-model="closedAt"
             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-sm shadow-xs"
             required
