@@ -1,5 +1,5 @@
 <template>
-  <div v-if="profile" class="space-y-8 animate-in fade-in duration-300">
+  <div class="space-y-8 animate-in fade-in duration-300">
     <!-- Header Banner -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
@@ -187,7 +187,7 @@
               </div>
 
               <!-- Owner indicator -->
-              <div v-if="profile.id === item.user_id" class="absolute top-3 right-3">
+              <div v-if="profile && profile.id === item.user_id" class="absolute top-3 right-3">
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-indigo-600 text-white shadow-xs">
                   Milik Saya
                 </span>
@@ -249,7 +249,7 @@
                   <span>Detail</span>
                 </RouterLink>
 
-                <template v-if="profile.id === item.user_id">
+                <template v-if="profile && profile.id === item.user_id">
                   <button
                     type="button"
                     :data-testid="'edit-aucation-btn-' + item.id"

@@ -1,7 +1,7 @@
 <template>
   <div v-if="!profile || !aucation" class="flex flex-col items-center justify-center py-24">
     <div class="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-    <p class="text-sm font-medium text-slate-600 mt-3">Memuat detail lelang...</p>
+    <h1 class="text-sm font-medium text-slate-600 mt-3">Memuat detail lelang...</h1>
   </div>
 
   <div v-else class="space-y-6 max-w-5xl mx-auto animate-in fade-in duration-300">
