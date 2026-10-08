@@ -31,6 +31,7 @@
         <button
           type="button"
           data-testid="profile-dropdown-button"
+          aria-label="Menu profil pengguna"
           @click="dropdownOpen = !dropdownOpen"
           class="flex items-center gap-3 p-1.5 pr-3 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
         >

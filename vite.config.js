@@ -20,6 +20,29 @@ export default defineConfig(({ mode }) => {
         env.VITE_DELCOM_BASEURL || "https://open-api.delcom.org/api/v1"
       ),
     },
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("@toast-ui/editor")) {
+                return "editor";
+              }
+              if (id.includes("sweetalert2")) {
+                return "swal";
+              }
+              if (id.includes("lucide-vue-next")) {
+                return "icons";
+              }
+              if (id.includes("vue") || id.includes("pinia")) {
+                return "vendor";
+              }
+            }
+          },
+        },
+      },
+    },
     test: {
       globals: true,
       environment: "jsdom",

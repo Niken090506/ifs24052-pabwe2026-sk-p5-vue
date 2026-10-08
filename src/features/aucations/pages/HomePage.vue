@@ -87,6 +87,7 @@
           <input
             type="text"
             data-testid="search-aucation-input"
+            aria-label="Cari judul atau rincian lelang"
             v-model="searchQuery"
             placeholder="Cari judul atau rincian lelang..."
             class="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
