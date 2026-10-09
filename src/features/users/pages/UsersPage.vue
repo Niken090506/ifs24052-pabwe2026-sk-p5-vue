@@ -54,8 +54,12 @@
           <div class="flex items-start gap-3.5">
             <img
               v-if="u.photo"
-              :src="u.photo"
+              :src="formatImageUrl(u.photo)"
               :alt="u.name"
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
               class="w-12 h-12 rounded-full object-cover border border-slate-200 shrink-0"
             />
             <div
@@ -90,7 +94,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useUsersStore } from "../states/usersStore";
-import { formatDate } from "../../../helpers/toolsHelper";
+import { formatDate, formatImageUrl } from "../../../helpers/toolsHelper";
 import { Users, Search, Mail, Calendar, Loader2 } from "lucide-vue-next";
 
 const usersStore = useUsersStore();

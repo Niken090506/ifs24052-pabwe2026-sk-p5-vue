@@ -7,6 +7,7 @@ import {
   showConfirmDialog,
   formatDate,
   formatRupiah,
+  formatImageUrl,
 } from "./toolsHelper";
 
 vi.mock("sweetalert2", () => ({
@@ -96,4 +97,13 @@ describe("toolsHelper", () => {
     expect(formatted).toContain("100.000");
     expect(formatted).toContain("Rp");
   });
+
+  it("should format image URLs to https or return empty string for non-string", () => {
+    expect(formatImageUrl(null)).toBe("");
+    expect(formatImageUrl(123)).toBe("");
+    expect(formatImageUrl("http://example.com/pic.jpg")).toBe("https://example.com/pic.jpg");
+    expect(formatImageUrl("https://example.com/pic.jpg")).toBe("https://example.com/pic.jpg");
+    expect(formatImageUrl("  /local/path.png  ")).toBe("/local/path.png");
+  });
 });
+

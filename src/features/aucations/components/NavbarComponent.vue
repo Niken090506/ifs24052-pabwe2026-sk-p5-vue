@@ -37,8 +37,12 @@
         >
           <img
             v-if="profile?.photo"
-            :src="profile.photo"
+            :src="formatImageUrl(profile.photo)"
             :alt="profile.name"
+            width="32"
+            height="32"
+            loading="lazy"
+            decoding="async"
             class="w-8 h-8 rounded-full object-cover border border-slate-200"
           />
           <div
@@ -106,6 +110,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useRouter, RouterLink } from "vue-router";
 import { Gavel, User, LogOut, ChevronDown, Menu, X } from "lucide-vue-next";
+import { formatImageUrl } from "../../../helpers/toolsHelper";
 
 defineProps({
   profile: {

@@ -77,8 +77,12 @@
       <!-- Large Cover Header -->
       <div v-if="aucation.cover" class="relative w-full h-72 sm:h-96 bg-slate-900 overflow-hidden">
         <img
-          :src="aucation.cover"
+          :src="formatImageUrl(aucation.cover)"
           :alt="aucation.title"
+          width="1024"
+          height="384"
+          loading="eager"
+          decoding="async"
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
@@ -253,7 +257,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import { useRoute, useRouter, RouterLink } from "vue-router";
 import { useAucationsStore } from "../states/aucationsStore";
 import { useUsersStore } from "../../users/states/usersStore";
-import { formatDate, formatRupiah, showConfirmDialog } from "../../../helpers/toolsHelper";
+import { formatDate, formatRupiah, showConfirmDialog, formatImageUrl } from "../../../helpers/toolsHelper";
 import MarkdownViewer from "../components/MarkdownViewer.vue";
 import ChangeCoverModal from "../modals/ChangeCoverModal.vue";
 import ChangeModal from "../modals/ChangeModal.vue";

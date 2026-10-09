@@ -161,8 +161,12 @@
             <div class="relative h-48 w-full bg-slate-100 overflow-hidden">
               <img
                 v-if="item.cover"
-                :src="item.cover"
+                :src="formatImageUrl(item.cover)"
                 :alt="item.title"
+                width="400"
+                height="192"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div v-else class="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-slate-100">
@@ -224,8 +228,12 @@
                 <div class="flex items-center gap-1.5 truncate max-w-[150px]">
                   <img
                     v-if="item.author?.photo"
-                    :src="item.author.photo"
+                    :src="formatImageUrl(item.author.photo)"
                     :alt="item.author.name"
+                    width="20"
+                    height="20"
+                    loading="lazy"
+                    decoding="async"
                     class="w-5 h-5 rounded-full object-cover shrink-0"
                   />
                   <User v-else :size="14" class="shrink-0" />
@@ -307,7 +315,7 @@ import { ref, computed, watch, onMounted } from "vue";
 import { useRoute, RouterLink } from "vue-router";
 import { useAucationsStore } from "../states/aucationsStore";
 import { useUsersStore } from "../../users/states/usersStore";
-import { formatRupiah, formatDate, showConfirmDialog } from "../../../helpers/toolsHelper";
+import { formatRupiah, formatDate, showConfirmDialog, formatImageUrl } from "../../../helpers/toolsHelper";
 import AddModal from "../modals/AddModal.vue";
 import ChangeModal from "../modals/ChangeModal.vue";
 import BidModal from "../modals/BidModal.vue";

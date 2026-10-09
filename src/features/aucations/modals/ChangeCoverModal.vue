@@ -37,6 +37,8 @@
               data-testid="cover-preview-img"
               :src="previewUrl"
               alt="Preview"
+              width="400"
+              height="192"
               class="w-full h-full object-cover"
             />
             <div v-else class="flex flex-col items-center justify-center pt-5 pb-6 text-center px-4">

@@ -19,8 +19,12 @@
       <div class="relative group">
         <img
           v-if="profile.photo"
-          :src="profile.photo"
+          :src="formatImageUrl(profile.photo)"
           :alt="profile.name"
+          width="96"
+          height="96"
+          loading="lazy"
+          decoding="async"
           class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md ring-2 ring-indigo-100"
         />
         <div
@@ -201,7 +205,7 @@
 <script setup>
 import { ref, computed, watch, onMounted } from "vue";
 import { useUsersStore } from "../states/usersStore";
-import { showErrorDialog } from "../../../helpers/toolsHelper";
+import { showErrorDialog, formatImageUrl } from "../../../helpers/toolsHelper";
 import { User, Camera, Check, Loader2, ShieldCheck } from "lucide-vue-next";
 
 const usersStore = useUsersStore();

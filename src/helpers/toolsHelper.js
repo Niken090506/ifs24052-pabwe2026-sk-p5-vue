@@ -82,3 +82,12 @@ export function formatRupiah(number) {
 
   return formatted.replace(/\u00a0/g, " ");
 }
+
+export function formatImageUrl(url) {
+  if (!url || typeof url !== "string") return "";
+  const trimmed = url.trim();
+  if (trimmed.startsWith("http://")) {
+    return trimmed.replace(/^http:\/\//i, "https://");
+  }
+  return trimmed;
+}
